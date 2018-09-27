@@ -1,0 +1,63 @@
+body{
+    padding:2%;
+    margin: 0 auto;
+}
+#panelIzquierdo{
+    width:26%;
+    height:700px;
+    margin:.5%;
+    background-color: green;
+    display: inline-block;
+    vertical-align: top;
+}
+#panelCentral{
+    width:41%;
+    height:700px;
+    margin:.5%;
+    background-color: blueviolet;
+    display: inline-block;
+    vertical-align: top;
+}
+#panelDerecho{
+    width:26%;
+    height:700px;
+    margin:.5%;
+    background-color: orange;
+    display: inline-block;
+    vertical-align: top;
+}
+#lucesProgreso{
+    width:94%;
+    margin: 3%;
+    height:44%;
+    background-color: gold;
+}
+#alertas{
+    width:94%;
+    margin: 3%;
+    height:44%;
+    background-color: hotpink;
+}
+#imagenProgreso{
+    width:94%;
+    margin: 3%;
+    height:44%;
+    background-color: aqua;
+}
+#startPauseStop{
+    width:94%;
+    margin: 3%;
+    height:44%;
+    background-color: greenyellow;
+}
+ul{
+    list-style: none;
+    height: 100%;
+}
+.led{
+    width: 10%;
+    height: 100%;
+    border: 1px solid black;
+    display: inline-block;
+    border-radius: 100%;
+}
