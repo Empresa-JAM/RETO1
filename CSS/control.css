@@ -1,0 +1,95 @@
+body{
+    padding:2%;
+    margin: 0 auto;
+}
+#panelIzquierdo{
+    width:26%;
+    height:700px;
+    margin:.5%;
+    background-color: green;
+    display: inline-block;
+    vertical-align: top;
+}
+#panelCentral{
+    width:41%;
+    height:700px;
+    margin:.5%;
+    background-color: blueviolet;
+    display: inline-block;
+    vertical-align: top;
+}
+#panelDerecho{
+    width:26%;
+    height:700px;
+    margin:.5%;
+    background-color: orange;
+    display: inline-block;
+    vertical-align: top;
+}
+#lucesProgreso{
+    width:94%;
+    margin: 3%;
+    height:44%;
+    background-color: gold;
+}
+#alertas{
+    width:94%;
+    margin: 3%;
+    height:44%;
+    background-color: hotpink;
+}
+#imagenProgreso{
+    width:94%;
+    margin: 3%;
+    height:44%;
+    background-color: aqua;
+}
+#startPauseStop{
+    width:94%;
+    margin: 3%;
+    height:44%;
+    background-color: greenyellow;
+}
+ul{
+    list-style: none;
+    height: 100%;
+    line-height: 120%;
+}
+
+.led{
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    display: inline-block;
+    border-radius: 100%;
+    vertical-align: middle;
+}
+#lucesProgreso p,#alertas p{
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 5%;
+}
+#reset{
+    width: 25%;
+    float: right;
+    height: 10%;
+}
+#startPauseStop input{
+    width: 33%;
+    display: inline-block;
+    font-size: 160%;
+    float: left;
+}
+#marcha{
+    border-radius: 140px 0 0 140px;
+    -moz-border-radius: 140px 0 0 140px;
+    -webkit-border-radius: 140px 0 0 140px;
+}
+#stop{
+    border-radius: 0 140px 140px 0;
+    -moz-border-radius: 0 140px 140px 0;
+    -webkit-border-radius: 0 140px 140px 0;
+}
+#panelDerecho input{
+    font-size: 160%;
+}
