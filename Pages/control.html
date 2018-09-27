@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../CSS/control.css">
+    <title>Reto1</title>
+</head>
+<body>
+    <div id="panelIzquierdo">
+        <div id="lucesProgreso">
+            <ul>
+                <li><div class="led"></div><p>Pilatzen</p></li>
+                <li><div class="led"></div><p>Paketatzen</p></li>
+                <li><div class="led"></div><p>Etiketatzen</p></li>
+            </ul>
+        </div>
+        <div id="alertas">
+            <fieldset>
+                <legend>Alertas</legend>
+                <ul>
+                    <li><div class="led"></div><p>alerta 1</p></li>
+                    <li><div class="led"></div><p>alert 2 </p></li>
+                    <li><div class="led"></div><p>alert 3</p></li>
+                    <li><div class="led"></div><p>alert 4</p></li>
+                </ul>
+                <input id="reset" type="button" value="Reset">
+            </fieldset>
+        </div>
+    </div>
+    <div id="panelCentral">
+        <div id="imagenProgreso">
+
+        </div>
+        <div id="startPauseStop">
+            <input id="marcha" type="button" value="marcha">
+            <input id="pausa" type="button" value="pausa">
+            <input id="stop" type="button" value="Stop">
+        </div>
+    </div>
+    <div id="panelDerecho">
+        <input type="number" >
+
+        <br>
+
+        <input id="jogPlus" type="button" value="Jog+">
+        <input id="jogMinus" type="button" value="Jog-">
+
+        <br>
+
+        <input id="manual" type="button" value="Manual">
+        <input id="automatico" type="button" value="Automático">
+
+        <select name="posiciones" id="listaPosiciones">
+            <option selected value="0"> Elige una posición </option>
+            <optgroup label="Apilar">
+                <option value="1">Pos. 1</option>
+                <option value="2">Pos. 2</option>
+                <option value="3">Pos. 3</option>
+                <option value="4">Pos. 4</option>
+            </optgroup>
+            <optgroup label="Empaquetar">
+                <option value="5">Pos. 5</option>
+                <option value="6">Pos. 6</option>
+                <option value="7">Pos. 7</option>
+                <option value="8">Pos. 8</option>
+            </optgroup>
+            <optgroup label="Etiquetar">
+                <option value="9">Pos. 9</option>
+                <option value="10">Pos. 10</option>
+                <option value="11">Pos. 11</option>
+            </optgroup>
+        </select>
+    </div>
+</body>
+</html>
