@@ -1,61 +1,69 @@
 body{
     padding:2%;
+    width: 96%;
+    text-align: center;
     margin: 0 auto;
 }
 #panelIzquierdo{
-    width:26%;
+    width:20%;
     height:700px;
     margin:.5%;
-    background-color: green;
+    border: 2px solid green;
     display: inline-block;
     vertical-align: top;
+    float:left;
 }
 #panelCentral{
-    width:41%;
+    width:50%;
     height:700px;
     margin:.5%;
-    background-color: blueviolet;
+    border: 2px solid blueviolet;
     display: inline-block;
     vertical-align: top;
 }
 #panelDerecho{
-    width:26%;
+    width:20%;
     height:700px;
     margin:.5%;
-    background-color: orange;
+    padding: 2%;
+    border: 2px solid orange;
     display: inline-block;
     vertical-align: top;
+    float: right;
 }
 #lucesProgreso{
     width:94%;
     margin: 3%;
     height:44%;
-    background-color: gold;
+    border: 2px solid gold;
 }
 #alertas{
     width:94%;
     margin: 3%;
     height:44%;
-    background-color: hotpink;
+    border: 2px solid hotpink;
 }
 #imagenProgreso{
     width:94%;
     margin: 3%;
     height:44%;
-    background-color: aqua;
+    border: 2px solid aqua;
 }
 #startPauseStop{
     width:94%;
     margin: 3%;
     height:44%;
-    background-color: greenyellow;
+    border: 2px solid greenyellow;
+    vertical-align: middle;
 }
 ul{
     list-style: none;
     height: 100%;
     line-height: 120%;
 }
-
+#lucesProgreso ul{
+    text-align: right;
+}
 .led{
     width: 20px;
     height: 20px;
@@ -68,6 +76,7 @@ ul{
     vertical-align: middle;
     display: inline-block;
     margin-left: 5%;
+    margin-right: 5%;
 }
 #reset{
     width: 25%;
@@ -75,21 +84,83 @@ ul{
     height: 10%;
 }
 #startPauseStop input{
-    width: 33%;
+    width: 33.33%;
     display: inline-block;
-    font-size: 160%;
+    font-size: 200%;
     float: left;
 }
 #marcha{
-    border-radius: 140px 0 0 140px;
-    -moz-border-radius: 140px 0 0 140px;
-    -webkit-border-radius: 140px 0 0 140px;
+    border-radius: 1em 0 0 1em;
+    -moz-border-radius: 1em 0 0 1em;
+    -webkit-border-radius: 1em 0 0 1em;
 }
 #stop{
-    border-radius: 0 140px 140px 0;
-    -moz-border-radius: 0 140px 140px 0;
-    -webkit-border-radius: 0 140px 140px 0;
+    border-radius: 0 1em 1em 0;
+    -moz-border-radius: 0 1em 1em 0;
+    -webkit-border-radius: 0 1em 1em 0;
 }
 #panelDerecho input{
     font-size: 160%;
+}
+#distancia,#jogs,#autoManual{
+    width: 100%;
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 10%;
+
+}
+#milimetros{
+    width:40%;
+    display:inline-block;
+}
+#distancia h3{
+    display: inline-block;
+    margin-right: 6%;
+}
+#jogs input,#autoManual input, #startPauseStop input{
+    background-color: #00A8E8;
+    box-shadow: 0 0.14em 0 #00171F;
+    color: white;
+    text-shadow: 0 0.07em 0 #00171F;
+    will-change: transform;
+    transform: translateY(0px) translateZ(0px);
+}
+#jogs input{
+    float:left;
+    font-size: 200%;
+}
+#jogPlus{
+    border-radius: 1em 0em 0em 0em;
+    -moz-border-radius: 1em 0em 0em 0em;
+    -webkit-border-radius: 1em 0em 0em 0em;
+}
+#jogMinus{
+    border-radius: 0em 0em 1em 0em;
+    -moz-border-radius:0em 0em 1em 0em;
+    -webkit-border-radius: 0em 0em 1em 0em;
+}
+#autoManual input{
+    font-size: 250%;
+    float: left;
+}
+#automatico,#manual{
+    border-radius: 0.5em;
+    line-height: 200%;
+
+
+}
+#autoManual input:active, #jogs input:active, #startPauseStop input:active{
+    transform: translateY(0.14em) translateZ(0em);
+    box-shadow: none;
+}
+#listaPosiciones{
+    float:left;
+    font-size: 150%;
+}
+input:focus{
+    outline: none;
+}
+
+@media (max-width: 359px) {
+    
 }
