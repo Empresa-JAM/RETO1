@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1">
     <link rel="stylesheet" href="../CSS/control.css">
     <title>Reto1</title>
 </head>
@@ -9,17 +10,17 @@
     <div id="panelIzquierdo">
         <div id="lucesProgreso">
             <ul>
-                <li><div class="led"></div><p>Pilatzen</p></li>
-                <li><div class="led"></div><p>Paketatzen</p></li>
-                <li><div class="led"></div><p>Etiketatzen</p></li>
+                <li><p>Pilatzen</p><div class="led"></div></li>
+                <li><p>Paketatzen</p><div class="led"></div></li>
+                <li><p>Etiketatzen</p><div class="led"></div></li>
             </ul>
         </div>
         <div id="alertas">
             <fieldset>
                 <legend>Alertas</legend>
                 <ul>
-                    <li><div class="led"></div><p>alerta 1</p></li>
-                    <li><div class="led"></div><p>alert 2 </p></li>
+                    <li><div class="led"></div><p>alert 1</p></li>
+                    <li><div class="led"></div><p>alert 2</p></li>
                     <li><div class="led"></div><p>alert 3</p></li>
                     <li><div class="led"></div><p>alert 4</p></li>
                 </ul>
@@ -38,18 +39,21 @@
         </div>
     </div>
     <div id="panelDerecho">
-        <input type="number" >
-
+        <div id="distancia">
+            <input id="milimetros" type="number" >
+            <h3>mm</h3>
+            <input id="go" type="button" value="GO">
+        </div>
         <br>
-
-        <input id="jogPlus" type="button" value="Jog+">
-        <input id="jogMinus" type="button" value="Jog-">
-
+        <div id="jogs">
+            <input id="jogPlus" type="button" value="Jog+">
+            <input id="jogMinus" type="button" value="Jog-">
+        </div>
         <br>
-
-        <input id="manual" type="button" value="Manual">
-        <input id="automatico" type="button" value="Automático">
-
+        <div id="autoManual">
+            <input id="manual" type="button" value="Manual">
+            <input id="automatico" type="button" value="Automático">
+        </div>
         <select name="posiciones" id="listaPosiciones">
             <option selected value="0"> Elige una posición </option>
             <optgroup label="Apilar">
