@@ -51,25 +51,37 @@
             </div>
         </div>
         <div id="startPauseStop">
-            <input id="marcha" type="button" value="marcha">
-            <input id="pausa" type="button" value="pausa">
-            <input id="stop" type="button" value="Stop">
+            <!-- AWP_In_Variable Name='"web".Marcha' -->
+            <input name='"web".Marcha' id="marcha" type="button" value="marcha" onclick="marcha(this.name)">
+            <!-- AWP_In_Variable Name='"web".Reset' -->
+            <input name='"web".Reset' id="pausa" type="button" value="pausa" onclick="pausa(this.name)">
+            <!-- AWP_In_Variable Name='"web".Stop' -->
+            <input name='"web".Stop' id="stop" type="button" value="Stop" onclick="stop(this.name)">
         </div>
     </div>
     <div id="panelDerecho">
+
+            <!-- AWP_In_Variable Name='"web".servo on' -->
+            <button name='"web".servo on' id="servoon" onclick="servoOn(this.name)">ON</button>
+            <button name='"web".servo on' id="servooff" onclick="servoOff(this.name)">OFF</button>
+
         <div id="distancia">
             <form id="enviarMM" method="post" onsubmit="return enviarMM(this.id)">
-            <!-- AWP_In_Variable Name='"mis_datos".posicion_mm' -->
-            <input name='"mis_datos".posicion_mm' id="verMilimetros" readonly style="text-align: center" />
-            <input name='"mis_datos".posicion_mm' id="milimetros" type="number" min="0" max="500"/>
+            <!-- AWP_In_Variable Name='"web".Posiciones por milimetros' -->
+            <input name='"web".Posiciones por milimetros' id="verMilimetros" readonly style="text-align: center" />
+            <input name='"web".Posiciones por milimetros' id="milimetros" type="number" min="0" max="500"/>
             <h3>mm</h3>
             <input id="go" type="submit" value="GO" onclick="moverMm()">
             </form>
         </div>
         <br>
         <div id="jogs">
-            <input id="jogPlus" type="button" value="Jog+" onmousedown="">
-            <input id="jogMinus" type="button" value="Jog-">
+            <form onsubmit="return false">
+            <!-- AWP_In_Variable Name='"web".JogPlus' -->
+            <button name='"web".JogPlus' id="jogPlus" type="button" value="0" onmousedown="pulse(this.id, this.name)" onmouseup="pulse(this.id, this.name)">JOG+</button>
+            <!-- AWP_In_Variable Name='"web".JogMinus' -->
+            <button name='"web".JogMinus' id="jogMinus" type="button" value="0" onmousedown="pulse(this.id, this.name)" onmouseup="pulse(this.id, this.name)">JOG-</button>
+            </form>
         </div>
         <br>
         <div id="autoManual">
@@ -78,7 +90,7 @@
         </div>
         <select name="posiciones" id="listaPosiciones" onchange="moverPos()">
             <option selected value="-1"> Elige una posición </option>
-            <option value="0">Pos. 0</option>
+            <option id="posicionTablas" value="0">Pos. 0</option>
             <optgroup label="Apilar">
                 <option value="1">Pos. 1</option>
                 <option value="2">Pos. 2</option>
@@ -98,8 +110,7 @@
         </select>
     </div>
 
-    <script type="text/javascript" src="../JS/verDatos.js"></script>
-    <script type="text/javascript" src="../JS/moverRobot.js"></script>
+    <script type="text/javascript" src="../JS/index.js"></script>
 
 </body>
 </html>
