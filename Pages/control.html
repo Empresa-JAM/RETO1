@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width", initial-scale="1">
     <link rel="stylesheet" href="../CSS/control.css">
+    <script type="text/javascript" src="../JS/ajax.js"></script>
     <script type="text/javascript" src="../JS/control.js"></script>
     <title>Reto1</title>
 </head>
@@ -57,19 +58,23 @@
     </div>
     <div id="panelDerecho">
         <div id="distancia">
-            <input id="milimetros" type="number" min="0" max="500">
+            <form id="enviarMM" method="post" onsubmit="return enviarMM(this.id)">
+            <!-- AWP_In_Variable Name='"mis_datos".posicion_mm' -->
+            <input name='"mis_datos".posicion_mm' id="verMilimetros" readonly style="text-align: center" />
+            <input name='"mis_datos".posicion_mm' id="milimetros" type="number" min="0" max="500"/>
             <h3>mm</h3>
-            <input id="go" type="button" value="GO" onclick="moverMm()">
+            <input id="go" type="submit" value="GO" onclick="moverMm()">
+            </form>
         </div>
         <br>
         <div id="jogs">
-            <input id="jogPlus" type="button" value="Jog+">
+            <input id="jogPlus" type="button" value="Jog+" onmousedown="">
             <input id="jogMinus" type="button" value="Jog-">
         </div>
         <br>
         <div id="autoManual">
-            <input id="manual" type="button" value="Manual">
-            <input id="automatico" type="button" value="Automático">
+            <input id="manual" type="button" onclick="manual()" value="Manual">
+            <input id="automatico" type="button" onclick="automatico()" value="Automático">
         </div>
         <select name="posiciones" id="listaPosiciones" onchange="moverPos()">
             <option selected value="-1"> Elige una posición </option>
@@ -92,5 +97,9 @@
             </optgroup>
         </select>
     </div>
+
+    <script type="text/javascript" src="../JS/verDatos.js"></script>
+    <script type="text/javascript" src="../JS/moverRobot.js"></script>
+
 </body>
 </html>
