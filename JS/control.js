@@ -21,13 +21,18 @@ function init() {
 function moverPos() {
     //obtenemos el valor de la lista 'listaposiciones' que se corresponde con la posición a la que se quiere ir
     let pos=document.getElementById("listaPosiciones").value;
-    //el -1 se da cuando se selecciona el 'elige una posición
-    //Se ha decidido no hacer nada en este caso
+    var mm=0;
     if(pos!=-1){
         bloque.style.marginLeft=bloque.offsetWidth*pos+"px";
+        mm=(bloque.offsetWidth*pos*500)/bloque.offsetWidth;
+        request2serverPulsador('"web".Posiciones por milimetros', mm);
     }
-}
 
+
+    //el -1 se da cuando se selecciona el 'elige una posición
+    //Se ha decidido no hacer nada en este caso
+}
+=======
 function moverMm (){
     //obtenemos los milimetros a desplazarse
     let mm=document.getElementById("milimetros").value;
@@ -77,3 +82,4 @@ function manual() {
     document.getElementById("pausa").setAttribute("disabled","disabled");
     document.getElementById("stop").setAttribute("disabled","disabled");
 }
+
