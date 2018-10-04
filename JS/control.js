@@ -32,7 +32,7 @@ function moverPos() {
     //el -1 se da cuando se selecciona el 'elige una posición
     //Se ha decidido no hacer nada en este caso
 }
-=======
+
 function moverMm (){
     //obtenemos los milimetros a desplazarse
     let mm=document.getElementById("milimetros").value;

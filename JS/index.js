@@ -1,5 +1,6 @@
 //Esta función nos permite ver los milimetros en el que esta el automata
 setInterval(verMovimiento,600);
+
 function verPosicion() {
     $.ajax({
         type: 'GET',
@@ -10,6 +11,7 @@ function verPosicion() {
         }
     });
 }
+
 function verMovimiento() {
     let mm=document.getElementById("verMilimetros").value;
     let anchura=bloque.offsetWidth*10;
