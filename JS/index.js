@@ -28,6 +28,7 @@ $(document).ready(function(){
 });
 //Nos permite enviar datos a la base de datos del automata
 function enviarMM(nombrefun) {
+    moverMm();
     var datos = $("#"+nombrefun).serialize();
     $.ajax({
         type: "POST",
