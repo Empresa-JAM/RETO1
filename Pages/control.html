@@ -20,18 +20,21 @@
         <div id="alertas">
             <fieldset>
                 <legend>Alertas</legend>
-                <ul>
-                    <li><div class="led"></div><p>alert 1</p></li>
+                    <
+                <!-- <ul>
+->                    <li><div class="led"></div><p>alert 1</p></li>
                     <li><div class="led"></div><p>alert 2</p></li>
                     <li><div class="led"></div><p>alert 3</p></li>
                     <li><div class="led"></div><p>alert 4</p></li>
                 </ul>
+                -->
                 <input id="reset" type="button" value="Reset">
             </fieldset>
         </div>
     </div>
     <div id="panelCentral">
         <div id="imagenProgreso">
+            <input name='"web".Posiciones por milimetros' id="verMilimetros" readonly/>
             <div class="carril">
                 <div id="bloque"><p>☺</p></div>
             </div>
@@ -50,26 +53,91 @@
                 <div class="paradas"><p>P10</p></div>
             </div>
         </div>
-        <div id="startPauseStop">
-            <input id="marcha" type="button" value="marcha">
-            <input id="pausa" type="button" value="pausa">
-            <input id="stop" type="button" value="Stop">
+        <div id="movAutomatico">
+            <div id="startPauseStop">
+                <!-- AWP_In_Variable Name='"web".Marcha' -->
+                <input name='"web".Marcha' id="marcha" type="button" value="marcha" onclick="marcha(this.name)">
+                <!-- AWP_In_Variable Name='"web".Reset' -->
+                <input name='"web".Reset' id="pausa" type="button" value="pausa" onclick="pausa(this.name)">
+                <!-- AWP_In_Variable Name='"web".Stop' -->
+                <input name='"web".Stop' id="stop" type="button" value="Stop" onclick="stop(this.name)">
+            </div>
+            <div id="reposiciones">
+                <ul>
+                    <li><label for="listaApilar"><p>Apilar</p></label>
+                        <select name="posiciones" id="listaApilar" onchange="">
+                                <option value="0">Pos. 0</option>
+                                <option value="1">Pos. 1</option>
+                                <option value="2">Pos. 2</option>
+                                <option value="3">Pos. 3</option>
+                                <option value="4">Pos. 4</option>
+                                <option value="5">Pos. 5</option>
+                                <option value="6">Pos. 6</option>
+                                <option value="7">Pos. 7</option>
+                                <option value="8">Pos. 8</option>
+                                <option value="9">Pos. 9</option>
+                                <option value="10">Pos. 10</option>
+                        </select>
+                    </li>
+                    <li><label for="listaEmpaquetar"><p>Empaquetar</p></label>
+                        <select name="posiciones" id="listaEmpaquetar" onchange="">
+                            <option value="0">Pos. 0</option>
+                            <option value="1">Pos. 1</option>
+                            <option value="2">Pos. 2</option>
+                            <option value="3">Pos. 3</option>
+                            <option value="4">Pos. 4</option>
+                            <option value="5">Pos. 5</option>
+                            <option value="6">Pos. 6</option>
+                            <option value="7">Pos. 7</option>
+                            <option value="8">Pos. 8</option>
+                            <option value="9">Pos. 9</option>
+                            <option value="10">Pos. 10</option>
+                        </select>
+                    </li>
+                    <li><label for="listaEtiquetar"><p>Etiquetar</p></label>
+                        <select name="posiciones" id="listaEtiquetar" onchange="">
+                            <option value="0">Pos. 0</option>
+                            <option value="1">Pos. 1</option>
+                            <option value="2">Pos. 2</option>
+                            <option value="3">Pos. 3</option>
+                            <option value="4">Pos. 4</option>
+                            <option value="5">Pos. 5</option>
+                            <option value="6">Pos. 6</option>
+                            <option value="7">Pos. 7</option>
+                            <option value="8">Pos. 8</option>
+                            <option value="9">Pos. 9</option>
+                            <option value="10">Pos. 10</option>
+                        </select>
+                    </li>
+                </ul>
+
+
+            </div>
         </div>
     </div>
     <div id="panelDerecho">
+
+            <!-- AWP_In_Variable Name='"web".servo on' -->
+            <button name='"web".servo on' id="servoon" onclick="servoOn(this.name)">ON</button>
+            <button name='"web".servo on' id="servooff" onclick="servoOff(this.name)">OFF</button>
+
         <div id="distancia">
             <form id="enviarMM" method="post" onsubmit="return enviarMM(this.id)">
-            <!-- AWP_In_Variable Name='"mis_datos".posicion_mm' -->
-            <input name='"mis_datos".posicion_mm' id="verMilimetros" readonly style="text-align: center" />
-            <input name='"mis_datos".posicion_mm' id="milimetros" type="number" min="0" max="500"/>
-            <h3>mm</h3>
-            <input id="go" type="submit" value="GO" onclick="moverMm()">
+            <!-- AWP_In_Variable Name='"web".Posiciones por milimetros' -->
+                <input name='"web".Posiciones por milimetros' id="milimetros" type="number" min="0" max="500" />
+                <h3>mm</h3>
+                <button id="go" type="submit" form="enviarMM" value="">GO</button>
             </form>
+
         </div>
         <br>
         <div id="jogs">
-            <input id="jogPlus" type="button" value="Jog+" onmousedown="">
-            <input id="jogMinus" type="button" value="Jog-">
+            <form onsubmit="return false">
+            <!-- AWP_In_Variable Name='"web".JogPlus' -->
+            <button name='"web".JogPlus' id="jogPlus" type="button" value="0" onmousedown="pulse(this.id, this.name)" onmouseup="pulse(this.id, this.name)">JOG+</button>
+            <!-- AWP_In_Variable Name='"web".JogMinus' -->
+            <button name='"web".JogMinus' id="jogMinus" type="button" value="0" onmousedown="pulse(this.id, this.name)" onmouseup="pulse(this.id, this.name)">JOG-</button>
+            </form>
         </div>
         <br>
         <div id="autoManual">
@@ -78,7 +146,7 @@
         </div>
         <select name="posiciones" id="listaPosiciones" onchange="moverPos()">
             <option selected value="-1"> Elige una posición </option>
-            <option value="0">Pos. 0</option>
+            <option id="posicionTablas" value="0">Pos. 0</option>
             <optgroup label="Apilar">
                 <option value="1">Pos. 1</option>
                 <option value="2">Pos. 2</option>
@@ -98,8 +166,7 @@
         </select>
     </div>
 
-    <script type="text/javascript" src="../JS/verDatos.js"></script>
-    <script type="text/javascript" src="../JS/moverRobot.js"></script>
+    <script type="text/javascript" src="../JS/index.js"></script>
 
 </body>
 </html>

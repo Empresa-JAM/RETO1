@@ -43,11 +43,28 @@ body{
     margin: 3%;
     height:44%;
 }
+#movAutomatico{
+    border: 1px solid green;
+    width:94%;
+    height:44%;
+    margin: 0 auto;
+}
 #startPauseStop{
     width:70%;
-    height:44%;
+    height:20%;
     vertical-align: middle;
     margin:0 auto;
+    border: 1px solid pink;
+}
+#reposiciones{
+    width:70%;
+    height:70%;
+    margin: 0 auto;
+    border: 1px solid yellow;
+    text-align: left;
+}
+#reposiciones label{
+    display: inline-block;
 }
 ul{
     list-style: none;
@@ -58,6 +75,13 @@ ul{
 }
 #lucesProgreso ul{
     text-align: right;
+}
+#reposiciones ul{
+    width: 25%;
+    display: inline-block;
+    line-height: 0%;
+    margin: 0;
+    padding: 0;
 }
 .led{
     width: 20px;
@@ -111,14 +135,19 @@ ul{
     display: inline-block;
     margin-right: 6%;
 }
-#jogs input,#autoManual input, #startPauseStop input{
+#go{
+    display: inline-block;
+    width:20%;
+    height: auto;
+}
+#panelDerecho button,#autoManual input, #startPauseStop input{
     background-color: #00A8E8;
     box-shadow: 0 0.14em 0 #00171F;
     color: white;
     text-shadow: 0 0.07em 0 #00171F;
 
 }
-#jogs input{
+#jogs button{
     float:left;
     font-size: 1.8vw;
 }
@@ -142,7 +171,7 @@ ul{
 
 
 }
-#autoManual input:active, #jogs input:active, #startPauseStop input:active{
+#autoManual input:active, #jogs button:active, #startPauseStop input:active{
     transform: translateY(0.14em) translateZ(0em);
     box-shadow: none;
 }
@@ -183,7 +212,7 @@ ul{
     color:white;
 }
 
-#panelDerecho input:disabled,#panelCentral input:disabled{
+#panelDerecho input:disabled,#panelCentral input:disabled,#panelDerecho button:disabled{
     background-color: #00a8e873;
 }
 
