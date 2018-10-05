@@ -37,7 +37,6 @@
             <div class="carril">
                 <div id="bloque"><p>☺</p></div>
             </div>
-
             <div class="carril">
                 <div class="paradas"><p>P0</p></div>
                 <div class="paradas"><p>P1</p></div>
@@ -62,56 +61,41 @@
                 <input name='"web".Stop' id="stop" type="button" value="Stop" onclick="stop(this.name)">
             </div>
             <div id="reposiciones">
+                <form id="posicionesP" method="post" onsubmit="return enviarPosiciones()">
                 <ul>
+                    <!-- AWP_In_Variable Name='"web".Predeterminadas[1]' -->
+                    <!-- AWP_In_Variable Name='"web".Predeterminadas[2]' -->
+                    <!-- AWP_In_Variable Name='"web".Predeterminadas[3]' -->
                     <li><label for="listaApilar"><p>Apilar</p></label>
-                        <select name="posiciones" id="listaApilar" onchange="">
-                                <option value="0">Pos. 0</option>
-                                <option value="1">Pos. 1</option>
-                                <option value="2">Pos. 2</option>
-                                <option value="3">Pos. 3</option>
-                                <option value="4">Pos. 4</option>
-                                <option value="5">Pos. 5</option>
-                                <option value="6">Pos. 6</option>
-                                <option value="7">Pos. 7</option>
-                                <option value="8">Pos. 8</option>
-                                <option value="9">Pos. 9</option>
-                                <option value="10">Pos. 10</option>
+                        <select name="posiciones" id="listaApilar" onchange="apilar()">
+                            <option value="0">Pos. 0</option>
+                            <option value="1">Pos. 1</option>
+                            <option value="2">Pos. 2</option>
+                            <option value="3">Pos. 3</option>
+                            <option value="4">Pos. 4</option>
                         </select>
                     </li>
                     <li><label for="listaEmpaquetar"><p>Empaquetar</p></label>
-                        <select name="posiciones" id="listaEmpaquetar" onchange="">
+                        <select name="posiciones" id="listaEmpaquetar" onchange="empaquetar()">
                             <option value="0">Pos. 0</option>
-                            <option value="1">Pos. 1</option>
-                            <option value="2">Pos. 2</option>
-                            <option value="3">Pos. 3</option>
-                            <option value="4">Pos. 4</option>
                             <option value="5">Pos. 5</option>
                             <option value="6">Pos. 6</option>
                             <option value="7">Pos. 7</option>
-                            <option value="8">Pos. 8</option>
-                            <option value="9">Pos. 9</option>
-                            <option value="10">Pos. 10</option>
                         </select>
                     </li>
                     <li><label for="listaEtiquetar"><p>Etiquetar</p></label>
-                        <select name="posiciones" id="listaEtiquetar" onchange="">
+                        <select name="posiciones" id="listaEtiquetar" onchange="etiquetar()">
                             <option value="0">Pos. 0</option>
-                            <option value="1">Pos. 1</option>
-                            <option value="2">Pos. 2</option>
-                            <option value="3">Pos. 3</option>
-                            <option value="4">Pos. 4</option>
-                            <option value="5">Pos. 5</option>
-                            <option value="6">Pos. 6</option>
-                            <option value="7">Pos. 7</option>
                             <option value="8">Pos. 8</option>
                             <option value="9">Pos. 9</option>
                             <option value="10">Pos. 10</option>
                         </select>
                     </li>
                 </ul>
-
-
+                    <button id="goP" type="submit" form="posicionesP">Enviar</button>
+                </form>
             </div>
+    </div>
     </div>
     <div id="panelDerecho">
 
