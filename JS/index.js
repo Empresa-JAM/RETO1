@@ -1,3 +1,4 @@
+
 //Esta función nos permite ver los milimetros en el que esta el automata
 setInterval(verMovimiento,600);
 function verPosicion() {
@@ -10,12 +11,14 @@ function verPosicion() {
         }
     });
 }
+
 function verMovimiento() {
+    verPosicion();
     let mm=document.getElementById("verMilimetros").value;
     let anchura=bloque.offsetWidth*10;
     bloque.style.marginLeft=(anchura*mm)/500+"px";
-    verPosicion();
 }
+
 //Nos permite devolver a la posicon 0 al automata al recargar la pagina
 $(document).ready(function(){
     document.getElementById('milimetros').value = 0; //poner milimetros a 0
@@ -28,7 +31,6 @@ $(document).ready(function(){
 });
 //Nos permite enviar datos a la base de datos del automata
 function enviarMM(nombrefun) {
-    moverMm();
     var datos = $("#"+nombrefun).serialize();
     $.ajax({
         type: "POST",
@@ -87,13 +89,23 @@ function stop(nameButton) {
     request2serverPulsador(nameButton, 1);
 }
 
+function apilar() {
+    return document.getElementById('listaApilar').value;
+}
 
+function empaquetar() {
+    return document.getElementById('listaEmpaquetar').value;
+}
 
+function etiquetar() {
+    return document.getElementById('listaEtiquetar').value;
+}
 
-
-
-
-
+function enviarPosiciones() {
+    request2serverPulsador('"web".Predeterminadas[1]',apilar());
+    request2serverPulsador('"web".Predeterminadas[2]',empaquetar());
+    request2serverPulsador('"web".Predeterminadas[3]',etiquetar());
+}
 
 
 

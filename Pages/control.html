@@ -9,6 +9,17 @@
     <title>Reto1</title>
 </head>
 <body>
+    <div id="modalOn" class="modal">
+        <div id="contenidoModal">
+            <button name='"web".servo on' id="servoOn" onclick="cerrarModal()">ON</button>
+            <p>Pulsa ON para encender el autómata y empezar a controlarlo</p>
+        </div>
+    </div>
+    <div id="barraTitulo">
+        <!-- AWP_In_Variable Name='"web".servo on' -->
+        <!-- <button name='"web".servo on' id="servoon" onclick="servoOn(this.name)">ON</button> -->
+        <button name='"web".servo on' id="servooff" onclick="servoOff(this.name)">OFF</button>
+    </div>
     <div id="panelIzquierdo">
         <div id="lucesProgreso">
             <ul>
@@ -35,9 +46,8 @@
         <div id="imagenProgreso">
             <input name='"web".Posiciones por milimetros' id="verMilimetros" readonly/>
             <div class="carril">
-                <div id="bloque"><p>☺</p></div>
+                <div id="bloque"></div>
             </div>
-
             <div class="carril">
                 <div class="paradas"><p>P0</p></div>
                 <div class="paradas"><p>P1</p></div>
@@ -62,66 +72,54 @@
                 <input name='"web".Stop' id="stop" type="button" value="Stop" onclick="stop(this.name)">
             </div>
             <div id="reposiciones">
+
+                <form id="posicionesP" method="post" onsubmit="return enviarPosiciones()">
                 <ul>
+                    <!-- AWP_In_Variable Name='"web".Predeterminadas[1]' -->
+                    <!-- AWP_In_Variable Name='"web".Predeterminadas[2]' -->
+                    <!-- AWP_In_Variable Name='"web".Predeterminadas[3]' -->
                     <li><label for="listaApilar"><p>Apilar</p></label>
-                        <select name="posiciones" id="listaApilar" onchange="">
-                                <option value="0">Pos. 0</option>
-                                <option value="1">Pos. 1</option>
-                                <option value="2">Pos. 2</option>
-                                <option value="3">Pos. 3</option>
-                                <option value="4">Pos. 4</option>
-                                <option value="5">Pos. 5</option>
-                                <option value="6">Pos. 6</option>
-                                <option value="7">Pos. 7</option>
-                                <option value="8">Pos. 8</option>
-                                <option value="9">Pos. 9</option>
-                                <option value="10">Pos. 10</option>
+                        <select name="posiciones" id="listaApilar" onchange="apilar()">
+                            <option value="0">Pos. 0</option>
+                            <option value="1">Pos. 1</option>
+                            <option value="2">Pos. 2</option>
+                            <option value="3">Pos. 3</option>
+                            <option value="4">Pos. 4</option>
                         </select>
+                        <input name='"web".Posiciones por milimetros' id="apilarMM" type="number" min="0" max="500" />
+                        <h3>mm</h3>
                     </li>
                     <li><label for="listaEmpaquetar"><p>Empaquetar</p></label>
-                        <select name="posiciones" id="listaEmpaquetar" onchange="">
+                        <select name="posiciones" id="listaEmpaquetar" onchange="empaquetar()">
                             <option value="0">Pos. 0</option>
-                            <option value="1">Pos. 1</option>
-                            <option value="2">Pos. 2</option>
-                            <option value="3">Pos. 3</option>
-                            <option value="4">Pos. 4</option>
                             <option value="5">Pos. 5</option>
                             <option value="6">Pos. 6</option>
                             <option value="7">Pos. 7</option>
-                            <option value="8">Pos. 8</option>
-                            <option value="9">Pos. 9</option>
-                            <option value="10">Pos. 10</option>
                         </select>
+                        <input name='"web".Posiciones por milimetros' id="empaqutarMM" type="number" min="0" max="500" />
+                        <h3>mm</h3>
                     </li>
                     <li><label for="listaEtiquetar"><p>Etiquetar</p></label>
-                        <select name="posiciones" id="listaEtiquetar" onchange="">
+                        <select name="posiciones" id="listaEtiquetar" onchange="etiquetar()">
                             <option value="0">Pos. 0</option>
-                            <option value="1">Pos. 1</option>
-                            <option value="2">Pos. 2</option>
-                            <option value="3">Pos. 3</option>
-                            <option value="4">Pos. 4</option>
-                            <option value="5">Pos. 5</option>
-                            <option value="6">Pos. 6</option>
-                            <option value="7">Pos. 7</option>
                             <option value="8">Pos. 8</option>
                             <option value="9">Pos. 9</option>
                             <option value="10">Pos. 10</option>
                         </select>
+                        <input name='"web".Posiciones por milimetros' id="etiquetarMM" type="number" min="0" max="500" />
+                        <h3>mm</h3>
                     </li>
                 </ul>
-
-
+                    <button id="goP" type="submit" form="posicionesP">Enviar</button>
+                </form>
             </div>
+    </div>
     </div>
     <div id="panelDerecho">
 
-            <!-- AWP_In_Variable Name='"web".servo on' -->
-            <button name='"web".servo on' id="servoon" onclick="servoOn(this.name)">ON</button>
-            <button name='"web".servo on' id="servooff" onclick="servoOff(this.name)">OFF</button>
-
-        <div id="distancia">
-            <form id="enviarMM" method="post" onsubmit="return enviarMM(this.id)">
-            <!-- AWP_In_Variable Name='"web".Posiciones por milimetros' -->
+     <div id="distancia">
+         <form id="enviarMM" method="post" onsubmit="return enviarMM(this.id)">
+         <!-- AWP_In_Variable Name='"web".Posiciones por milimetros' -->
                 <input name='"web".Posiciones por milimetros' id="milimetros" type="number" min="0" max="500" />
                 <h3>mm</h3>
                 <button id="go" type="submit" form="enviarMM" value="">GO</button>
@@ -142,6 +140,7 @@
             <input id="manual" type="button" onclick="manual()" value="Manual">
             <input id="automatico" type="button" onclick="automatico()" value="Automático">
         </div>
+        <br>
         <select name="posiciones" id="listaPosiciones" onchange="moverPos()">
             <option selected value="-1"> Elige una posición </option>
             <option id="posicionTablas" value="0">Pos. 0</option>
