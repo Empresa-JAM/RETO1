@@ -36,20 +36,18 @@ function moverPos() {
       if(pos!=-1){
           //bloque.style.marginLeft=bloque.offsetWidth*pos+"px";
           var mm=(bloque.offsetWidth*pos*50)/bloque.offsetWidth;
+          guardarEstadisticas(parseInt(mm));
           request2serverPulsador('"web".Posiciones por milimetros', mm);
       }
 }
 
-/** mover sin base de datos
+
 function moverMm (){
     //obtenemos los milimetros a desplazarse
-    let mm=document.getElementById("verMilimetros").value;
-    //calculamos la anchura total del rail o regla
-    let anchura=bloque.offsetWidth*10;
-    //mediante una regla de tres convertimos los mm a pixels
-    bloque.style.marginLeft=(anchura*mm)/500+"px";
+    let mm=document.getElementById("milimetros").value;
+    guardarEstadisticas(parseInt(mm));
 }
- */
+
 
 function automatico() {
     let auto = document.getElementById("automatico");

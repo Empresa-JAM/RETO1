@@ -79,7 +79,7 @@
                     <!-- AWP_In_Variable Name='"web".Predeterminadas[2]' -->
                     <!-- AWP_In_Variable Name='"web".Predeterminadas[3]' -->
                     <li><label for="listaApilar"><p>Apilar</p></label>
-                        <select name="posiciones" id="listaApilar" onchange="apilar()">
+                        <select name="posiciones" id="listaApilar" onchange="">
                             <option value="0">Pos. 0</option>
                             <option value="1">Pos. 1</option>
                             <option value="2">Pos. 2</option>
@@ -88,7 +88,7 @@
                         </select>
                     </li>
                     <li><label for="listaEmpaquetar"><p>Empaquetar</p></label>
-                        <select name="posiciones" id="listaEmpaquetar" onchange="empaquetar()">
+                        <select name="posiciones" id="listaEmpaquetar" onchange="">
                             <option value="0">Pos. 0</option>
                             <option value="5">Pos. 5</option>
                             <option value="6">Pos. 6</option>
@@ -96,7 +96,7 @@
                         </select>
                     </li>
                     <li><label for="listaEtiquetar"><p>Etiquetar</p></label>
-                        <select name="posiciones" id="listaEtiquetar" onchange="etiquetar()">
+                        <select name="posiciones" id="listaEtiquetar" onchange="">
                             <option value="0">Pos. 0</option>
                             <option value="8">Pos. 8</option>
                             <option value="9">Pos. 9</option>
@@ -136,7 +136,7 @@
          <!-- AWP_In_Variable Name='"web".Posiciones por milimetros' -->
                 <input name='"web".Posiciones por milimetros' id="milimetros" type="number" min="0" max="500" />
                 <h3>mm</h3>
-                <button id="go" type="submit" form="enviarMM" value="">GO</button>
+                <button id="go" type="submit" form="enviarMM" onclick="moverMm()">GO</button>
             </form>
 
         </div>
@@ -177,7 +177,13 @@
         </select>
     </div>
 
+    <div id="estadisticas"></div>
+    <button id="dales">Estadisticas</button>
+
     <script type="text/javascript" src="../JS/index.js"></script>
+    <script type="text/javascript" src="../JS/estadisticas.js"></script>
+
+
 
 </body>
 </html>

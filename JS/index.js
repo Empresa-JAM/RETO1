@@ -102,18 +102,18 @@ function etiquetar() {
 }
 
 function enviarPosiciones() {
-    request2serverPulsador('"web".Predeterminadas[1]',apilar());
-    request2serverPulsador('"web".Predeterminadas[2]',empaquetar());
-    request2serverPulsador('"web".Predeterminadas[3]',etiquetar());
+
+    var pre1 = '"web".Predeterminadas[1]';
+    var pre2 = '"web".Predeterminadas[2]';
+    var pre3 = '"web".Predeterminadas[3]';
+
+    enviarMM("enviarMM");
+    setTimeout('request2serverPulsador(pre1,apilar())',5000);
+    setTimeout('request2serverPulsador(pre2,empaquetar())',5000);
+    setTimeout('request2serverPulsador(pre3,etiquetar())',5000);
+
+    return false;
 }
-
-
-
-
-
-
-
-
 
 
 

@@ -294,6 +294,19 @@ input:focus,button:focus{
 }
 
 
+@media (max-width: 1024px) {
+    
+}
+
+
+
+
+#estadisticas {
+    display: none;
+}
+
+
+
 @media (max-width: 414px) {
     html, html input, html button{
         font-size:4vw;
@@ -350,3 +363,4 @@ input:focus,button:focus{
         height: 1.5em;
     }
 }
+
