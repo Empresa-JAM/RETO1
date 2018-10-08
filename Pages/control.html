@@ -17,7 +17,6 @@
     </div>
     <div id="barraTitulo">
         <!-- AWP_In_Variable Name='"web".servo on' -->
-        <!-- <button name='"web".servo on' id="servoon" onclick="servoOn(this.name)">ON</button> -->
         <button name='"web".servo on' id="servooff" onclick="servoOff(this.name)">OFF</button>
     </div>
     <div id="panelIzquierdo">
@@ -86,8 +85,10 @@
                             <option value="3">Pos. 3</option>
                             <option value="4">Pos. 4</option>
                         </select>
+
                         <input name='"web".Posiciones por milimetros' id="apilarMM" type="number" min="0" max="500" />
                         <h3>mm</h3>
+
                     </li>
                     <li><label for="listaEmpaquetar"><p>Empaquetar</p></label>
                         <select name="posiciones" id="listaEmpaquetar" onchange="empaquetar()">
