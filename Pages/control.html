@@ -17,6 +17,7 @@
     </div>
     <div id="barraTitulo">
         <!-- AWP_In_Variable Name='"web".servo on' -->
+        <!-- <button name='"web".servo on' id="servoon" onclick="servoOn(this.name)">ON</button> -->
         <button name='"web".servo on' id="servooff" onclick="servoOff(this.name)">OFF</button>
     </div>
     <div id="panelIzquierdo">
@@ -72,7 +73,7 @@
             </div>
             <div id="reposiciones">
 
-                <form id="posicionesP" method="post" onsubmit="return enviarPosiciones()">
+            <form id="posicionesP" method="post" onsubmit="return enviarPosiciones()">
                 <ul>
                     <!-- AWP_In_Variable Name='"web".Predeterminadas[1]' -->
                     <!-- AWP_In_Variable Name='"web".Predeterminadas[2]' -->
@@ -85,10 +86,6 @@
                             <option value="3">Pos. 3</option>
                             <option value="4">Pos. 4</option>
                         </select>
-
-                        <input name='"web".Posiciones por milimetros' id="apilarMM" type="number" min="0" max="500" />
-                        <h3>mm</h3>
-
                     </li>
                     <li><label for="listaEmpaquetar"><p>Empaquetar</p></label>
                         <select name="posiciones" id="listaEmpaquetar" onchange="empaquetar()">
@@ -97,8 +94,6 @@
                             <option value="6">Pos. 6</option>
                             <option value="7">Pos. 7</option>
                         </select>
-                        <input name='"web".Posiciones por milimetros' id="empaqutarMM" type="number" min="0" max="500" />
-                        <h3>mm</h3>
                     </li>
                     <li><label for="listaEtiquetar"><p>Etiquetar</p></label>
                         <select name="posiciones" id="listaEtiquetar" onchange="etiquetar()">
@@ -107,11 +102,29 @@
                             <option value="9">Pos. 9</option>
                             <option value="10">Pos. 10</option>
                         </select>
-                        <input name='"web".Posiciones por milimetros' id="etiquetarMM" type="number" min="0" max="500" />
-                        <h3>mm</h3>
                     </li>
                 </ul>
-                    <button id="goP" type="submit" form="posicionesP">Enviar</button>
+                <button id="goP" type="submit" form="posicionesP">Enviar</button>
+            </form>
+                <form id="posicionesMM" method="post" onsubmit="return enviarPosiciones()">
+                    <ul>
+                        <!-- AWP_In_Variable Name='"web".Predeterminadas[1]' -->
+                        <!-- AWP_In_Variable Name='"web".Predeterminadas[2]' -->
+                        <!-- AWP_In_Variable Name='"web".Predeterminadas[3]' -->
+                        <li>
+                            <input name='"web".Posiciones por milimetros' id="apilarMM" type="number" min="0" max="500" />
+                            <h3>mm</h3>
+                        </li>
+                        <li>
+                            <input name='"web".Posiciones por milimetros' id="empaqutarMM" type="number" min="0" max="500" />
+                            <h3>mm</h3>
+                        </li>
+                        <li>
+                            <input name='"web".Posiciones por milimetros' id="etiquetarMM" type="number" min="0" max="500" />
+                            <h3>mm</h3>
+                        </li>
+                    </ul>
+                    <button id="goMM" type="submit" form="posicionesMM">Enviar</button>
                 </form>
             </div>
     </div>

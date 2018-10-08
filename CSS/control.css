@@ -251,8 +251,16 @@ ul{
     cursor: pointer;
 }
 
-#reposiciones select{
+#reposiciones select,#reposiciones input{
     font-size: 1.5vw;
+    vertical-align: middle;
+}
+#reposiciones form{
+    width:49%;
+    display: inline-block;
+}
+#reposiciones li{
+    line-height: 1em;
 }
 /*Ventana modal*/
 #modalOn{
