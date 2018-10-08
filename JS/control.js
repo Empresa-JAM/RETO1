@@ -2,6 +2,7 @@
 /**
  * Created by Mikel on 02/10/2018.
  */
+
 //Esta funcion es principalmente para reajustar el bloque de posición cuando se reajusta la pantalla
 window.onresize = resize;
 function resize()
@@ -9,13 +10,22 @@ function resize()
     if(document.getElementById("listaPosiciones").value!=-1)
         moverPos();
 }
+
 window.onload = function () {
     init();
 }
 
 function init() {
+    //abrir la modal
+    document.getElementById('modalOn').style.display="block";
+
     const bloque=document.getElementById("bloque");
 
+}
+
+
+function cerrarModal() {
+    document.getElementById('modalOn').style.display = "none";
 }
 
 
