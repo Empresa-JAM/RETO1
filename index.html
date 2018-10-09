@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width", initial-scale="1">
-    <link rel="stylesheet" href="../CSS/control.css">
-    <script type="text/javascript" src="../JS/ajax.js"></script>
-    <script type="text/javascript" src="../JS/control.js"></script>
+    <link rel="stylesheet" href="CSS/control.css">
+    <script type="text/javascript" src="JS/ajax.js"></script>
+    <script type="text/javascript" src="JS/control.js"></script>
     <title>Reto1</title>
 </head>
 <body>
     <div id="modalOn" class="modal">
+        <!-- AWP_In_Variable Name='"web".servo on' -->
         <div id="contenidoModal">
             <button name='"web".servo on' id="servoOn" onclick="cerrarModal()">ON</button>
             <p>Pulsa ON para encender el autómata y empezar a controlarlo</p>
         </div>
     </div>
     <div id="barraTitulo">
-        <!-- AWP_In_Variable Name='"web".servo on' -->
-        <!-- <button name='"web".servo on' id="servoon" onclick="servoOn(this.name)">ON</button> -->
         <button name='"web".servo on' id="servooff" onclick="servoOff(this.name)">OFF</button>
     </div>
     <div id="panelIzquierdo">
@@ -65,11 +64,11 @@
         <div id="movAutomatico">
             <div id="startPauseStop">
                 <!-- AWP_In_Variable Name='"web".Marcha' -->
-                <input name='"web".Marcha' id="marcha" type="button" value="marcha" onclick="marcha(this.name)">
+                <button name='"web".Marcha' id="marcha" type="button" value="0" onmousedown="pulse(this.id, this.name)" onmouseup="pulse(this.id, this.name)">marcha</button>
                 <!-- AWP_In_Variable Name='"web".Reset' -->
-                <input name='"web".Reset' id="pausa" type="button" value="pausa" onclick="pausa(this.name)">
+                <button name='"web".Reset' id="pausa" type="button" value="0" onmousedown="pulse(this.id, this.name)" onmouseup="pulse(this.id, this.name)">reset</button>
                 <!-- AWP_In_Variable Name='"web".Stop' -->
-                <input name='"web".Stop' id="stop" type="button" value="Stop" onclick="stop(this.name)">
+                <button name='"web".Stop' id="stop" type="button" value="0" onmousedown="pulse(this.id, this.name)" onmouseup="pulse(this.id, this.name)">stop</button>
             </div>
             <div id="reposiciones">
 
@@ -106,25 +105,25 @@
                 </ul>
                 <button id="goP" type="submit" form="posicionesP">Enviar</button>
             </form>
-                <form id="posicionesMM" method="post" onsubmit="return enviarPosiciones()">
+                <form id="posicionesCotas" method="post" onsubmit="return enviarCotas()">
                     <ul>
-                        <!-- AWP_In_Variable Name='"web".Predeterminadas[1]' -->
-                        <!-- AWP_In_Variable Name='"web".Predeterminadas[2]' -->
-                        <!-- AWP_In_Variable Name='"web".Predeterminadas[3]' -->
+                        <!-- AWP_In_Variable Name='"web".Cotas[1]' -->
+                        <!-- AWP_In_Variable Name='"web".Cotas[2]' -->
+                        <!-- AWP_In_Variable Name='"web".Cotas[3]' -->
                         <li>
-                            <input name='"web".Posiciones por milimetros' id="apilarMM" type="number" min="0" max="500" />
+                            <input name='"web".Cotas[1]' id="apilarCotas" type="number" min="0" max="500" />
                             <h3>mm</h3>
                         </li>
                         <li>
-                            <input name='"web".Posiciones por milimetros' id="empaqutarMM" type="number" min="0" max="500" />
+                            <input name='"web".Cotas[2]' id="empaqutarCotas" type="number" min="0" max="500" />
                             <h3>mm</h3>
                         </li>
                         <li>
-                            <input name='"web".Posiciones por milimetros' id="etiquetarMM" type="number" min="0" max="500" />
+                            <input name='"web".Cotas[3]' id="etiquetarCotas" type="number" min="0" max="500" />
                             <h3>mm</h3>
                         </li>
                     </ul>
-                    <button id="goMM" type="submit" form="posicionesMM">Enviar</button>
+                    <button id="goCotas" type="submit" form="posicionesCotas">Enviar</button>
                 </form>
             </div>
     </div>
@@ -156,6 +155,7 @@
         </div>
         <br>
         <select name="posiciones" id="listaPosiciones" onchange="moverPos()">
+            <!-- AWP_In_Variable Name='"web".Posiciones por tablas' -->
             <option selected value="-1"> Elige una posición </option>
             <option id="posicionTablas" value="0">Pos. 0</option>
             <optgroup label="Apilar">
@@ -177,11 +177,8 @@
         </select>
     </div>
 
-    <div id="estadisticas"></div>
-    <button id="dales">Estadisticas</button>
 
-    <script type="text/javascript" src="../JS/index.js"></script>
-    <script type="text/javascript" src="../JS/estadisticas.js"></script>
+    <script type="text/javascript" src="JS/index.js"></script>
 
 
 

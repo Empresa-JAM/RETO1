@@ -24,6 +24,7 @@ function init() {
 }
 
 function cerrarModal() {
+    servoOn(document.getElementById('servoOn').name);
     document.getElementById('modalOn').style.display = "none";
 }
 
@@ -31,13 +32,14 @@ function moverPos() {
     //obtenemos el valor de la lista 'listaposiciones' que se corresponde con la posición a la que se quiere ir
     let pos=document.getElementById("listaPosiciones").value;
 
+    request2serverPulsador('"web".Posiciones por tablas',parseInt(pos));
+
     //el -1 se da cuando se selecciona el 'elige una posición
     //Se ha decidido no hacer nada en este caso
       if(pos!=-1){
           //bloque.style.marginLeft=bloque.offsetWidth*pos+"px";
           var mm=(bloque.offsetWidth*pos*50)/bloque.offsetWidth;
-          guardarEstadisticas(parseInt(mm));
-          request2serverPulsador('"web".Posiciones por milimetros', mm);
+          request2serverPulsador('"web".Posiciones por milimetros',parseInt(mm));
       }
 }
 
@@ -45,7 +47,6 @@ function moverPos() {
 function moverMm (){
     //obtenemos los milimetros a desplazarse
     let mm=document.getElementById("milimetros").value;
-    guardarEstadisticas(parseInt(mm));
 }
 
 
