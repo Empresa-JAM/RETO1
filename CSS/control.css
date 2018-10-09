@@ -17,7 +17,6 @@ body{
     vertical-align: top;
     float:left;
 }
-
 #panelCentral{
     width:60%;
     height:auto;
@@ -118,7 +117,7 @@ ul{
     height: 10%;
     min-width: 6em;
 }
-#startPauseStop input{
+#startPauseStop button{
     width: 33.33%;
     display: inline-block;
     font-size: 2vw;
@@ -155,7 +154,7 @@ ul{
     width:20%;
     height: auto;
 }
-#panelDerecho button,#autoManual input, #startPauseStop input{
+#panelDerecho button,#autoManual input, #startPauseStop button{
     background-color: #00A8E8;
     box-shadow: 0 0.14em 0 #00171F;
     color: white;
@@ -186,7 +185,7 @@ ul{
 
 
 }
-#autoManual input:active, #jogs button:active, #startPauseStop input:active{
+#autoManual input:active, #jogs button:active, #startPauseStop button:active{
     transform: translateY(0.14em) translateZ(0em);
     box-shadow: none;
 }
@@ -312,7 +311,7 @@ input:focus,button:focus{
     html, html input, html button{
         font-size:4vw;
     }
-    #panelIzquierdo,#reposiciones,#estadis{
+    #panelIzquierdo,#reposiciones{
         display: none;
     }
     #panelDerecho{
@@ -336,7 +335,7 @@ input:focus,button:focus{
     #movAutomatico{
         width: 100%;
     }
-    #startPauseStop input{
+    #startPauseStop button{
         font-size: 4vw;
     }
     #distancia,#jogs,#autoManual{
