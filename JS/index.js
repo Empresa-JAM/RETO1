@@ -4,12 +4,23 @@ setInterval(verMovimiento,600);
 function verPosicion() {
     $.ajax({
         type: 'GET',
-        url: "variables/getPosicionMM.html",
+        url: "Pages/variables/getPosicionMM.html",
         async: false,
         success: function (datos) {
             $('#verMilimetros').val(parseInt(datos));
         }
     });
+}
+
+//Funcion para poder enviar datos sin actulizar la pagina
+function request2serverPulsador(nameVariable, value) {
+    $.ajax({
+        type:"POST",
+        data:nameVariable+"="+value,
+        success: function(data){},
+        error: function () {}
+    });
+    return false;
 }
 
 function verMovimiento() {
@@ -24,7 +35,6 @@ $(document).ready(function(){
     document.getElementById('milimetros').value = 0; //poner milimetros a 0
     enviarMM("enviarMM"); //reinicaiar posicion del automata
     request2serverPulsador('"web".servo on', 0); //desactivar el automata
-    document.getElementById('servooff').disabled=true; //boton off disabled
     request2serverPulsador('"web".Marcha', 0);
     request2serverPulsador('"web".Reset', 0);
     request2serverPulsador('"web".Stop', 0);
@@ -40,21 +50,21 @@ function enviarMM(nombrefun) {
     });
     return false;
 }
+
 //Funcion para encender el automata
 function servoOn(nameButton) {
-    document.getElementById('servoon').value = 1;
+    document.getElementById('servoOn').value = 1;
     request2serverPulsador(nameButton, 1);
-    document.getElementById('servoon').disabled=true;
-    document.getElementById('servooff').disabled=false;
 }
+
 //Funcion para apagar el automata
 function servoOff(nameButton) {
     document.getElementById('servooff').value = 0;
     request2serverPulsador(nameButton, 0);
-    document.getElementById('servooff').disabled=true;
-    document.getElementById('servoon').disabled=false;
+    init();
 }
-//Funcion para controlar el jogPlus y jogMinus
+
+//Funcion para controlar el true y false de los botones
 function pulse(idPulsador, namePulsador){
     if(document.getElementById(idPulsador).value != 1){
         document.getElementById(idPulsador).value = 1;
@@ -64,30 +74,7 @@ function pulse(idPulsador, namePulsador){
         request2serverPulsador(namePulsador, 0);
     }
 }
-//Funcion para poder enviar datos sin actulizar la pagina
-function request2serverPulsador(nameVariable, value) {
-    $.ajax({
-        type:"POST",
-        data:nameVariable+"="+value,
-        success: function(data){},
-        error: function () {}
-    });
-    return false;
-}
 
-function marcha(nameButton) {
-    request2serverPulsador(nameButton, 1);
-    request2serverPulsador('"web".Reset', 0);
-    request2serverPulsador('"web".Stop', 0);
-}
-
-function pausa(nameButton) {
-    request2serverPulsador(nameButton, 1);
-}
-
-function stop(nameButton) {
-    request2serverPulsador(nameButton, 1);
-}
 
 function apilar() {
     return document.getElementById('listaApilar').value;
@@ -108,9 +95,18 @@ function enviarPosiciones() {
     var pre3 = '"web".Predeterminadas[3]';
 
     enviarMM("enviarMM");
-    setTimeout('request2serverPulsador(pre1,apilar())',5000);
-    setTimeout('request2serverPulsador(pre2,empaquetar())',5000);
-    setTimeout('request2serverPulsador(pre3,etiquetar())',5000);
+    request2serverPulsador(pre1,apilar());
+    request2serverPulsador(pre2,empaquetar());
+    request2serverPulsador(pre3,etiquetar());
+
+    return false;
+}
+
+function enviarCotas() {
+
+    request2serverPulsador(document.getElementById('apilarCotas').name,document.getElementById('apilarCotas').value);
+    request2serverPulsador(document.getElementById('empaqutarCotas').name,document.getElementById('empaqutarCotas').value);
+    request2serverPulsador(document.getElementById('etiquetarCotas').name,document.getElementById('etiquetarCotas').value);
 
     return false;
 }
