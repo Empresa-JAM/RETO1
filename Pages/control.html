@@ -2,32 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width", initial-scale="1">
     <link rel="stylesheet" href="../CSS/control.css">
+    <script type="text/javascript" src="../JS/ajax.js"></script>
+    <script type="text/javascript" src="../JS/control.js"></script>
     <title>Reto1</title>
 </head>
 <body>
     <div id="panelIzquierdo">
         <div id="lucesProgreso">
             <ul>
-                <li><div class="led"></div> Pilatzen</li>
-                <li>Paketatzen</li>
-                <li>Etiketatzen</li>
+                <li><p>Pilatzen</p><div class="led"></div></li>
+                <li><p>Paketatzen</p><div class="led"></div></li>
+                <li><p>Etiketatzen</p><div class="led"></div></li>
             </ul>
         </div>
         <div id="alertas">
-
+            <fieldset>
+                <legend>Alertas</legend>
+                <ul>
+                    <li><div class="led"></div><p>alert 1</p></li>
+                    <li><div class="led"></div><p>alert 2</p></li>
+                    <li><div class="led"></div><p>alert 3</p></li>
+                    <li><div class="led"></div><p>alert 4</p></li>
+                </ul>
+                <input id="reset" type="button" value="Reset">
+            </fieldset>
         </div>
     </div>
     <div id="panelCentral">
         <div id="imagenProgreso">
+            <div class="carril">
+                <div id="bloque"><p>☺</p></div>
+            </div>
 
+            <div class="carril">
+                <div class="paradas"><p>P0</p></div>
+                <div class="paradas"><p>P1</p></div>
+                <div class="paradas"><p>P2</p></div>
+                <div class="paradas"><p>P3</p></div>
+                <div class="paradas"><p>P4</p></div>
+                <div class="paradas"><p>P5</p></div>
+                <div class="paradas"><p>P6</p></div>
+                <div class="paradas"><p>P7</p></div>
+                <div class="paradas"><p>P8</p></div>
+                <div class="paradas"><p>P9</p></div>
+                <div class="paradas"><p>P10</p></div>
+            </div>
         </div>
         <div id="startPauseStop">
-
+            <input id="marcha" type="button" value="marcha">
+            <input id="pausa" type="button" value="pausa">
+            <input id="stop" type="button" value="Stop">
         </div>
     </div>
     <div id="panelDerecho">
-
+        <div id="distancia">
+            <form id="enviarMM" method="post" onsubmit="return enviarMM(this.id)">
+            <!-- AWP_In_Variable Name='"mis_datos".posicion_mm' -->
+            <input name='"mis_datos".posicion_mm' id="verMilimetros" readonly style="text-align: center" />
+            <input name='"mis_datos".posicion_mm' id="milimetros" type="number" min="0" max="500"/>
+            <h3>mm</h3>
+            <input id="go" type="submit" value="GO" onclick="moverMm()">
+            </form>
+        </div>
+        <br>
+        <div id="jogs">
+            <input id="jogPlus" type="button" value="Jog+" onmousedown="">
+            <input id="jogMinus" type="button" value="Jog-">
+        </div>
+        <br>
+        <div id="autoManual">
+            <input id="manual" type="button" onclick="manual()" value="Manual">
+            <input id="automatico" type="button" onclick="automatico()" value="Automático">
+        </div>
+        <select name="posiciones" id="listaPosiciones" onchange="moverPos()">
+            <option selected value="-1"> Elige una posición </option>
+            <option value="0">Pos. 0</option>
+            <optgroup label="Apilar">
+                <option value="1">Pos. 1</option>
+                <option value="2">Pos. 2</option>
+                <option value="3">Pos. 3</option>
+                <option value="4">Pos. 4</option>
+            </optgroup>
+            <optgroup label="Empaquetar">
+                <option value="5">Pos. 5</option>
+                <option value="6">Pos. 6</option>
+                <option value="7">Pos. 7</option>
+            </optgroup>
+            <optgroup label="Etiquetar">
+                <option value="8">Pos. 8</option>
+                <option value="9">Pos. 9</option>
+                <option value="10">Pos. 10</option>
+            </optgroup>
+        </select>
     </div>
+
+    <script type="text/javascript" src="../JS/verDatos.js"></script>
+    <script type="text/javascript" src="../JS/moverRobot.js"></script>
+
 </body>
 </html>
