@@ -2,13 +2,184 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Reto 1</title>
-    <link rel="stylesheet" href="CSS/index.css">
-
-
+    <meta name="viewport" content="width=device-width", initial-scale="1">
+    <link rel="stylesheet" href="CSS/control.css">
+    <script type="text/javascript" src="JS/jquery.js"></script>
+    <script type="text/javascript" src="JS/control.js"></script>
+    <title>Reto1</title>
 </head>
 <body>
-    <a href="Pages/control.html"><img id="botonOn"src="Images/start.png"/></a>
+    <div id="modalOn" class="modal">
+        <!-- AWP_In_Variable Name='"web".servo on' -->
+        <div id="contenidoModal">
+            <button name='"web".servo on' id="servoOn" onclick="cerrarModal()">ON</button>
+            <p>Pulsa ON para encender el autómata y empezar a controlarlo</p>
+        </div>
+    </div>
+    <div id="barraTitulo">
+        <button name='"web".servo on' id="servooff" onclick="servoOff(this.name)">OFF</button>
+    </div>
+    <div id="panelIzquierdo">
+        <div id="lucesProgreso">
+            <ul>
+                <li><p>Pilatzen</p><div class="led"></div></li>
+                <li><p>Paketatzen</p><div class="led"></div></li>
+                <li><p>Etiketatzen</p><div class="led"></div></li>
+            </ul>
+        </div>
+        <div id="alertas">
+            <fieldset>
+              <legend>Alertas</legend>
+                <!-- <ul>
+                    <li><div class="led"></div><p>alert 1</p></li>
+                    <li><div class="led"></div><p>alert 2</p></li>
+                    <li><div class="led"></div><p>alert 3</p></li>
+                    <li><div class="led"></div><p>alert 4</p></li>
+                </ul>
+                -->
+                <input id="reset" type="button" value="Reset">
+            </fieldset>
+        </div>
+    </div>
+    <div id="panelCentral">
+        <div id="imagenProgreso">
+            <input name='"web".Posiciones por milimetros' id="verMilimetros" readonly/>
+            <div class="carril">
+                <div id="bloque"></div>
+            </div>
+            <div class="carril">
+                <div class="paradas"><p>P0</p></div>
+                <div class="paradas"><p>P1</p></div>
+                <div class="paradas"><p>P2</p></div>
+                <div class="paradas"><p>P3</p></div>
+                <div class="paradas"><p>P4</p></div>
+                <div class="paradas"><p>P5</p></div>
+                <div class="paradas"><p>P6</p></div>
+                <div class="paradas"><p>P7</p></div>
+                <div class="paradas"><p>P8</p></div>
+                <div class="paradas"><p>P9</p></div>
+                <div class="paradas"><p>P10</p></div>
+            </div>
+        </div>
+        <div id="movAutomatico">
+            <div id="startPauseStop">
+                <!-- AWP_In_Variable Name='"web".Marcha' -->
+                <button name='"web".Marcha' id="marcha" type="button" value="0" onmousedown="pulse(this.id, this.name)" onmouseup="pulse(this.id, this.name)">marcha</button>
+                <!-- AWP_In_Variable Name='"web".Reset' -->
+                <button name='"web".Reset' id="pausa" type="button" value="0" onmousedown="pulse(this.id, this.name)" onmouseup="pulse(this.id, this.name)">reset</button>
+                <!-- AWP_In_Variable Name='"web".Stop' -->
+                <button name='"web".Stop' id="stop" type="button" value="0" onmousedown="pulse(this.id, this.name)" onmouseup="pulse(this.id, this.name)">stop</button>
+            </div>
+            <div id="reposiciones">
+
+            <form id="posicionesP" method="post" onsubmit="return enviarPosiciones()">
+                <ul>
+                    <!-- AWP_In_Variable Name='"web".Predeterminadas[1]' -->
+                    <!-- AWP_In_Variable Name='"web".Predeterminadas[2]' -->
+                    <!-- AWP_In_Variable Name='"web".Predeterminadas[3]' -->
+                    <li><label for="listaApilar"><p>Apilar</p></label>
+                        <select name="posiciones" id="listaApilar" onchange="">
+                            <option value="0">Pos. 0</option>
+                            <option value="1">Pos. 1</option>
+                            <option value="2">Pos. 2</option>
+                            <option value="3">Pos. 3</option>
+                            <option value="4">Pos. 4</option>
+                        </select>
+                    </li>
+                    <li><label for="listaEmpaquetar"><p>Empaquetar</p></label>
+                        <select name="posiciones" id="listaEmpaquetar" onchange="">
+                            <option value="0">Pos. 0</option>
+                            <option value="5">Pos. 5</option>
+                            <option value="6">Pos. 6</option>
+                            <option value="7">Pos. 7</option>
+                        </select>
+                    </li>
+                    <li><label for="listaEtiquetar"><p>Etiquetar</p></label>
+                        <select name="posiciones" id="listaEtiquetar" onchange="">
+                            <option value="0">Pos. 0</option>
+                            <option value="8">Pos. 8</option>
+                            <option value="9">Pos. 9</option>
+                            <option value="10">Pos. 10</option>
+                        </select>
+                    </li>
+                </ul>
+                <button id="goP" type="submit" form="posicionesP">Enviar</button>
+            </form>
+                <form id="posicionesCotas" method="post" onsubmit="return enviarCotas()">
+                    <ul>
+                        <!-- AWP_In_Variable Name='"web".Cotas[1]' -->
+                        <!-- AWP_In_Variable Name='"web".Cotas[2]' -->
+                        <!-- AWP_In_Variable Name='"web".Cotas[3]' -->
+                        <li>
+                            <input name='"web".Cotas[1]' id="apilarCotas" type="number" min="0" max="500" />
+                            <h3>mm</h3>
+                        </li>
+                        <li>
+                            <input name='"web".Cotas[2]' id="empaqutarCotas" type="number" min="0" max="500" />
+                            <h3>mm</h3>
+                        </li>
+                        <li>
+                            <input name='"web".Cotas[3]' id="etiquetarCotas" type="number" min="0" max="500" />
+                            <h3>mm</h3>
+                        </li>
+                    </ul>
+                    <button id="goCotas" type="submit" form="posicionesCotas">Enviar</button>
+                </form>
+            </div>
+    </div>
+    </div>
+    <div id="panelDerecho">
+
+     <div id="distancia">
+         <form id="enviarMM" method="post" onsubmit="return enviarMM(this.id)">
+         <!-- AWP_In_Variable Name='"web".Posiciones por milimetros' -->
+                <input name='"web".Posiciones por milimetros' id="milimetros" type="number" min="0" max="500" />
+                <h3>mm</h3>
+                <button id="go" type="submit" form="enviarMM" onclick="moverMm()">GO</button>
+            </form>
+
+        </div>
+        <br>
+        <div id="jogs">
+            <form onsubmit="return false">
+            <!-- AWP_In_Variable Name='"web".JogPlus' -->
+            <button name='"web".JogPlus' id="jogPlus" type="button" value="0" onmousedown="pulse(this.id, this.name)" onmouseup="pulse(this.id, this.name)">JOG+</button>
+            <!-- AWP_In_Variable Name='"web".JogMinus' -->
+            <button name='"web".JogMinus' id="jogMinus" type="button" value="0" onmousedown="pulse(this.id, this.name)" onmouseup="pulse(this.id, this.name)">JOG-</button>
+            </form>
+        </div>
+        <br>
+        <div id="autoManual">
+            <input id="manual" type="button" onclick="manual()" value="Manual">
+            <input id="automatico" type="button" onclick="automatico()" value="Automático">
+        </div>
+        <br>
+        <select name="posiciones" id="listaPosiciones" onchange="moverPos()">
+            <!-- AWP_In_Variable Name='"web".Posiciones por tablas' -->
+            <option selected value="-1"> Elige una posición </option>
+            <option id="posicionTablas" value="0">Pos. 0</option>
+            <optgroup label="Apilar">
+                <option value="1">Pos. 1</option>
+                <option value="2">Pos. 2</option>
+                <option value="3">Pos. 3</option>
+                <option value="4">Pos. 4</option>
+            </optgroup>
+            <optgroup label="Empaquetar">
+                <option value="5">Pos. 5</option>
+                <option value="6">Pos. 6</option>
+                <option value="7">Pos. 7</option>
+            </optgroup>
+            <optgroup label="Etiquetar">
+                <option value="8">Pos. 8</option>
+                <option value="9">Pos. 9</option>
+                <option value="10">Pos. 10</option>
+            </optgroup>
+        </select>
+    </div>
+
+    <button id="estadis"><a href="Pages/estadisticas.html">Estadisticas</a></button>
+
+    <script type="text/javascript" src="JS/index.js"></script>
 
 
 
