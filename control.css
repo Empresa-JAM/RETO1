@@ -1,0 +1,366 @@
+html,html input,html button{
+    font-family: Consolas, monaco, monospace;
+    font-size: 1vw;
+}
+body{
+    padding:2%;
+    width: 96%;
+    text-align: center;
+    margin: 0 auto;
+    background-image: url("../Images/background.jpg");
+}
+
+#panelIzquierdo{
+    width:15%;
+    margin:.5%;
+    display: inline-block;
+    vertical-align: top;
+    float:left;
+}
+#panelCentral{
+    width:60%;
+    height:auto;
+    margin:.5%;
+    display: inline-block;
+    vertical-align: top;
+}
+#panelDerecho{
+    width:20%;
+    margin:.5%;
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+}
+#barraTitulo{
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+#barraTitulo button{
+    float: right;
+}
+#lucesProgreso{
+    width:94%;
+    margin: 3%;
+    height:44%;
+}
+#alertas{
+    width:94%;
+    margin: 3%;
+    height:44%;
+}
+#imagenProgreso{
+    width:94%;
+    margin: 3%;
+    height:44%;
+}
+#movAutomatico{
+    width:94%;
+    height:44%;
+    margin: 0 auto;
+    margin-top: 20%;
+}
+#startPauseStop{
+    width:70%;
+    height:20%;
+    vertical-align: middle;
+    margin:0 auto;
+}
+#reposiciones{
+    width:70%;
+    height:70%;
+    margin: 0 auto;
+    text-align: left;
+    margin-top: 2em;
+    display: inline-block;
+}
+#reposiciones label{
+    display: inline-block;
+}
+ul{
+    list-style: none;
+    height: 100%;
+    line-height: 120%;
+    padding:0;
+    width: 100%;
+}
+#lucesProgreso ul{
+    text-align: right;
+}
+#reposiciones ul{
+    width: 100%;
+    display: inline-block;
+    line-height: 0%;
+    margin: 0;
+    padding: 0;
+}
+#reposiciones h3{
+    display: inline-block;
+}
+.led{
+    width: 1.5em;
+    height: 1.5em;
+    border: 1px solid black;
+    display: inline-block;
+    border-radius: 100%;
+    vertical-align: middle;
+}
+#lucesProgreso p,#alertas p{
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+#reset{
+    width: 25%;
+    float: right;
+    height: 10%;
+    min-width: 6em;
+}
+#startPauseStop button{
+    width: 33.33%;
+    display: inline-block;
+    font-size: 2vw;
+    float: left;
+}
+
+#marcha{
+    border-radius: 1em 0 0 1em;
+    -moz-border-radius: 1em 0 0 1em;
+    -webkit-border-radius: 1em 0 0 1em;
+}
+#stop{
+    border-radius: 0 1em 1em 0;
+    -moz-border-radius: 0 1em 1em 0;
+    -webkit-border-radius: 0 1em 1em 0;
+}
+#distancia,#jogs,#autoManual{
+    width: 100%;
+    text-align: left;
+    display: inline-block;
+    margin-bottom: 10%;
+
+}
+#milimetros{
+    width:20%;
+    display:inline-block;
+}
+#distancia h3{
+    display: inline-block;
+    margin-right: 6%;
+}
+#go{
+    display: inline-block;
+    width:20%;
+    height: auto;
+}
+#panelDerecho button,#autoManual input, #startPauseStop button{
+    background-color: #00A8E8;
+    box-shadow: 0 0.14em 0 #00171F;
+    color: white;
+    text-shadow: 0 0.07em 0 #00171F;
+
+}
+#jogs button{
+    float:left;
+    font-size: 1.8vw;
+}
+#jogPlus{
+    border-radius: 1em 0em 0em 0em;
+    -moz-border-radius: 1em 0em 0em 0em;
+    -webkit-border-radius: 1em 0em 0em 0em;
+}
+#jogMinus{
+    border-radius: 0em 0em 1em 0em;
+    -moz-border-radius:0em 0em 1em 0em;
+    -webkit-border-radius: 0em 0em 1em 0em;
+}
+#autoManual input{
+    font-size: 1.9vw;
+    float: left;
+}
+#automatico,#manual{
+    border-radius: 0.5em;
+    line-height: 200%;
+
+
+}
+#autoManual input:active, #jogs button:active, #startPauseStop button:active{
+    transform: translateY(0.14em) translateZ(0em);
+    box-shadow: none;
+}
+#listaPosiciones{
+    float:left;
+    font-size: 1.5vw;
+}
+.carril{
+    width:100%;
+    height:15%;
+    vertical-align: bottom;
+    text-align: left;
+}
+.paradas{
+    width:8.7%;
+    border-right: 0.1em solid black;
+    border-top:0.2em double black;
+    height: 100%;
+    display: inline-block;
+    text-align: right;
+    float: left;
+}
+.paradas p{
+    margin-right: 0.1em;
+}
+#bloque{
+    height:3em;
+    width:8.7%;
+    padding-right: 0.1em;
+    background-color: #007EA7;
+    transition: 0.5s ease;
+    text-align: center;
+    border-radius: 2em 2em 1em 1em;
+}
+
+#panelDerecho input:disabled,#panelCentral input:disabled,#panelDerecho button:disabled{
+    background-color: #00a8e873;
+}
+
+#verMilimetros {
+    text-align: center;
+    margin-bottom: 4%;
+}
+
+#servooff,#servoOn {
+    font-size: 1.5vw;
+    background-color: #f44336;
+    color: white;
+    border: 0.1em inset #f44336;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+#servoOn{
+    border:0.1em inset #0dab20;
+    font-size: 2.5vw;
+    background-color: #0dab20;
+}
+
+#servooff:hover,#servooff:active,#servoOn:hover,#servoOn:active {
+    border-radius: 1em 1em 1em 1em;
+    -moz-border-radius:1em 1em 1em 1em;
+    -webkit-border-radius: 1em 1em 1em 1em;
+    cursor: pointer;
+}
+
+#reposiciones select,#reposiciones input{
+    font-size: 1.5vw;
+    vertical-align: middle;
+}
+#reposiciones form{
+    width:49%;
+    display: inline-block;
+}
+#reposiciones li{
+    line-height: 1em;
+}
+/*Ventana modal*/
+#modalOn{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+#contenidoModal{
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 2%;
+    border: 1px solid #888;
+    width: 20%;
+}
+
+
+
+
+
+
+input:focus,button:focus{
+    outline: none;
+}
+
+
+@media (max-width: 1024px) {
+    
+}
+
+
+
+
+#estadisticas {
+    display: none;
+}
+
+
+
+@media (max-width: 414px) {
+    html, html input, html button{
+        font-size:4vw;
+    }
+    #panelIzquierdo,#reposiciones{
+        display: none;
+    }
+    #panelDerecho{
+        width:90%;
+        float:none;
+        margin: 0 auto;
+    }
+    #panelCentral{
+        width:100%;
+        height: 15em;
+    }
+    .paradas{
+        width:8.6%;
+    }
+    #imagenProgreso{
+        height: 50%;
+    }
+    .carril{
+        height:25%;
+    }
+    #movAutomatico{
+        width: 100%;
+    }
+    #startPauseStop button{
+        font-size: 4vw;
+    }
+    #distancia,#jogs,#autoManual{
+        margin-bottom: 2%;
+        text-align: center;
+    }
+    #autoManual{
+        width: 40%;
+    }
+    #jogs button{
+        font-size: 3.8vw;
+        float:none;
+    }
+    #autoManual input,#listaPosiciones{
+        font-size: 4vw;
+        float: none;
+    }
+    #servooff,#servoOn {
+        font-size: 3.5vw;
+    }
+    #contenidoModal{
+        width:70%;
+    }
+    #bloque {
+        height: 1.5em;
+    }
+}
+
