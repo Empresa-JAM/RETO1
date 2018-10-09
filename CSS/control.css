@@ -17,6 +17,7 @@ body{
     vertical-align: top;
     float:left;
 }
+
 #panelCentral{
     width:60%;
     height:auto;
@@ -311,7 +312,7 @@ input:focus,button:focus{
     html, html input, html button{
         font-size:4vw;
     }
-    #panelIzquierdo,#reposiciones{
+    #panelIzquierdo,#reposiciones,#estadis{
         display: none;
     }
     #panelDerecho{

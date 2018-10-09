@@ -12,6 +12,17 @@ function verPosicion() {
     });
 }
 
+//Funcion para poder enviar datos sin actulizar la pagina
+function request2serverPulsador(nameVariable, value) {
+    $.ajax({
+        type:"POST",
+        data:nameVariable+"="+value,
+        success: function(data){},
+        error: function () {}
+    });
+    return false;
+}
+
 function verMovimiento() {
     verPosicion();
     let mm=document.getElementById("verMilimetros").value;
@@ -63,16 +74,7 @@ function pulse(idPulsador, namePulsador){
         request2serverPulsador(namePulsador, 0);
     }
 }
-//Funcion para poder enviar datos sin actulizar la pagina
-function request2serverPulsador(nameVariable, value) {
-    $.ajax({
-        type:"POST",
-        data:nameVariable+"="+value,
-        success: function(data){},
-        error: function () {}
-    });
-    return false;
-}
+
 
 function apilar() {
     return document.getElementById('listaApilar').value;
