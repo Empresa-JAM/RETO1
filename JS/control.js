@@ -18,9 +18,8 @@ window.onload = function () {
 function init() {
     //abrir la modal
     document.getElementById('modalOn').style.display="block";
-
     const bloque=document.getElementById("bloque");
-
+    automatico();
 }
 
 function cerrarModal() {
@@ -60,14 +59,14 @@ function automatico() {
     manual.style.boxShadow = "0 0.14em 0 #00171F";
 
     manual.removeAttribute("disabled");
-    document.getElementById("marcha").removeAttribute("disabled");
-    document.getElementById("pausa").removeAttribute("disabled");
-    document.getElementById("stop").removeAttribute("disabled");
+    document.getElementById('reposiciones').style.display="inline-block";
 
     auto.setAttribute("disabled","disabled");
     document.getElementById('jogPlus').setAttribute("disabled","disabled");
     document.getElementById('jogMinus').setAttribute("disabled","disabled");
     document.getElementById('listaPosiciones').setAttribute("disabled","disabled");
+    document.getElementById('milimetros').setAttribute("disabled","disabled");
+    document.getElementById('go').setAttribute("disabled","disabled");
 }
 
 function manual() {
@@ -79,15 +78,15 @@ function manual() {
     auto.style.transform = "translateY(0em) translateZ(0em)";
     auto.style.boxShadow = "0 0.14em 0 #00171F";
 
-
+    document.getElementById('reposiciones').style.display="none";
     auto.removeAttribute("disabled");
     document.getElementById('jogPlus').removeAttribute("disabled");
     document.getElementById('jogMinus').removeAttribute("disabled");
     document.getElementById('listaPosiciones').removeAttribute("disabled");
+    document.getElementById('milimetros').removeAttribute("disabled");
+    document.getElementById('go').removeAttribute("disabled");
 
     manual.setAttribute("disabled","disabled");
-    document.getElementById("marcha").setAttribute("disabled","disabled");
-    document.getElementById("pausa").setAttribute("disabled","disabled");
-    document.getElementById("stop").setAttribute("disabled","disabled");
+
 }
 
