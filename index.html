@@ -72,6 +72,12 @@
             </div>
             <div id="reposiciones">
 
+                <div id="posicion_milimetro">
+                    <!-- AWP_In_Variable Name='"web".Milimetros/Tablas' -->
+                <button name="" id="posicion" type="button" value="0" onclick="posicion()">posicion</button>
+                <button name="" id="mili" type="button" value="0" onclick="milimetro()">milimetro</button>
+                </div>
+
             <form id="posicionesP" method="post" onsubmit="return enviarPosiciones()">
                 <ul>
                     <!-- AWP_In_Variable Name='"web".Predeterminadas[1]' -->
@@ -150,6 +156,7 @@
         </div>
         <br>
         <div id="autoManual">
+            <!-- AWP_In_Variable Name='"web".Auto/Manual' -->
             <input id="manual" type="button" onclick="manual()" value="Manual">
             <input id="automatico" type="button" onclick="automatico()" value="Automático">
         </div>
@@ -177,7 +184,7 @@
         </select>
     </div>
 
-    <button id="estadis"><a href="Pages/estadisticas.html">Estadisticas</a></button>
+    <button id="estadis"><a target="_blank" href="Pages/estadisticas.html">Estadisticas</a></button>
 
     <script type="text/javascript" src="JS/index.js"></script>
 

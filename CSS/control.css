@@ -72,6 +72,7 @@ body{
     margin: 0 auto;
     text-align: left;
     margin-top: 2em;
+    padding-left: 10rem;
     display: inline-block;
 }
 #reposiciones label{
@@ -124,6 +125,25 @@ ul{
     float: left;
 }
 
+#posicion{
+    border-radius: 1em 0 0 1em;
+    -moz-border-radius: 1em 0 0 1em;
+    -webkit-border-radius: 1em 0 0 1em;
+    padding: 0.5rem;
+}
+
+#posicion_milimetro{
+    text-align: center;
+    padding-right: 10rem;
+}
+
+#mili{
+    border-radius: 0 1em 1em 0;
+    -moz-border-radius: 0 1em 1em 0;
+    -webkit-border-radius: 0 1em 1em 0;
+    padding: 0.5rem;
+}
+
 #marcha{
     border-radius: 1em 0 0 1em;
     -moz-border-radius: 1em 0 0 1em;
@@ -154,7 +174,7 @@ ul{
     width:20%;
     height: auto;
 }
-#panelDerecho button,#autoManual input, #startPauseStop button{
+#panelDerecho button,#autoManual input, #startPauseStop button, #mili,#posicion{
     background-color: #00A8E8;
     box-shadow: 0 0.14em 0 #00171F;
     color: white;
@@ -258,6 +278,7 @@ ul{
 #reposiciones form{
     width:49%;
     display: inline-block;
+    padding-top: 2.5rem;
 }
 #reposiciones li{
     line-height: 1em;
@@ -285,10 +306,6 @@ ul{
 }
 
 
-
-
-
-
 input:focus,button:focus{
     outline: none;
 }
@@ -311,8 +328,17 @@ input:focus,button:focus{
     html, html input, html button{
         font-size:4vw;
     }
-    #panelIzquierdo,#reposiciones{
+    #panelIzquierdo,#estadis{
         display: none;
+    }
+    #reposiciones{
+        width:40%;
+        height:70%;
+        margin: 0 auto;
+        text-align: left;
+        margin-top: 14em;
+        padding-left: 10rem;
+        display: inline-block;
     }
     #panelDerecho{
         width:90%;
@@ -345,6 +371,9 @@ input:focus,button:focus{
     #autoManual{
         width: 40%;
     }
+
+
+
     #jogs button{
         font-size: 3.8vw;
         float:none;

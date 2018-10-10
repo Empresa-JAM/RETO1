@@ -20,6 +20,7 @@ function init() {
     document.getElementById('modalOn').style.display="block";
     const bloque=document.getElementById("bloque");
     automatico();
+    posicion();
 }
 
 function cerrarModal() {
@@ -50,6 +51,7 @@ function moverMm (){
 
 
 function automatico() {
+    request2serverPulsador('"web".Auto/Manual', 1);
     let auto = document.getElementById("automatico");
     let manual = document.getElementById("manual");
 
@@ -59,7 +61,8 @@ function automatico() {
     manual.style.boxShadow = "0 0.14em 0 #00171F";
 
     manual.removeAttribute("disabled");
-    document.getElementById('reposiciones').style.display="inline-block";
+
+    document.getElementById('reposiciones').style.display = "inline-block";
 
     auto.setAttribute("disabled","disabled");
     document.getElementById('jogPlus').setAttribute("disabled","disabled");
@@ -70,6 +73,7 @@ function automatico() {
 }
 
 function manual() {
+    request2serverPulsador('"web".Auto/Manual', 0);
     let auto = document.getElementById("automatico");
     let manual = document.getElementById("manual");
 
@@ -88,5 +92,53 @@ function manual() {
 
     manual.setAttribute("disabled","disabled");
 
+}
+
+function posicion() {
+
+    request2serverPulsador('"web".Milimetros/Tablas', 1);
+
+    let posicion = document.getElementById("posicion");
+    let mili = document.getElementById("mili");
+
+    posicion.style.transform = "translateY(0.14em) translateZ(0em)";
+    posicion.style.boxShadow = "none";
+    mili.style.transform = "translateY(0em) translateZ(0em)";
+    mili.style.boxShadow = "0 0.14em 0 #00171F";
+
+    mili.removeAttribute("disabled");
+
+    document.getElementById('posicionesP').style.display = "inline-block";
+    document.getElementById('posicionesP').style.paddingLeft = "10rem";
+    document.getElementById('posicionesCotas').style.display="none";
+
+
+    posicion.setAttribute("disabled","disabled");
+
+    document.getElementById('mili').removeAttribute("disabled","disabled");
+    document.getElementById('posicion').setAttribute("disabled","disabled");
+}
+
+function milimetro() {
+
+    request2serverPulsador('"web".Milimetros/Tablas', 0);
+
+    let posicion = document.getElementById("posicion");
+    let mili = document.getElementById("mili");
+
+    mili.style.transform = "translateY(0.14em) translateZ(0em)";
+    mili.style.boxShadow = "none";
+    posicion.style.transform = "translateY(0em) translateZ(0em)";
+    posicion.style.boxShadow = "0 0.14em 0 #00171F";
+
+    document.getElementById('posicionesCotas').style.display = "inline-block";
+    document.getElementById('posicionesCotas').style.paddingLeft = "12rem";
+    document.getElementById('posicionesP').style.display="none";
+    posicion.removeAttribute("disabled");
+
+    document.getElementById('mili').setAttribute("disabled","disabled");
+    document.getElementById('posicion').removeAttribute("disabled","disabled");
+
+    mili.setAttribute("disabled","disabled");
 }
 
