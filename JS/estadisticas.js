@@ -1,9 +1,9 @@
 
-function guardarEstadisticas(datos) {
+guardarCiclos(document.getElementById('verCuotas').value);
 
-    parseInt(localStorage.milimetros);
+function guardarCiclos(datos) {
 
-    localStorage.milimetros = datos;
+    localStorage.ciclos = datos;
 
 }
 
@@ -15,9 +15,7 @@ crearArray();
 
 function crearArray() {
 
-    alry.push(["Milimetros", parseInt(localStorage.milimetros)]);
-
-    alry.push(["Agua", 65]);
+    alry.push(["Ciclos", parseInt(localStorage.ciclos)]);
 
     datos();
 }

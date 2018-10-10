@@ -34,6 +34,28 @@ function moverPos() {
 
     request2serverPulsador('"web".Posiciones por tablas',parseInt(pos));
 
+    switch (parseInt(pos)){
+        case 1: case 2: case 3: case 4:
+        document.getElementById('led1').style.backgroundColor = "red";
+        document.getElementById('led2').style.backgroundColor = "white";
+        document.getElementById('led3').style.backgroundColor = "white";
+        break;
+
+        case 5: case 6: case 7:
+        document.getElementById('led1').style.backgroundColor = "white";
+        document.getElementById('led2').style.backgroundColor = "red";
+        document.getElementById('led3').style.backgroundColor = "white";
+        break;
+
+        case 8: case 9: case 10:
+        document.getElementById('led1').style.backgroundColor = "white";
+        document.getElementById('led2').style.backgroundColor = "white";
+        document.getElementById('led3').style.backgroundColor = "red";
+
+    }
+
+
+
     //el -1 se da cuando se selecciona el 'elige una posición
     //Se ha decidido no hacer nada en este caso
       if(pos!=-1){
@@ -62,9 +84,13 @@ function automatico() {
 
     manual.removeAttribute("disabled");
 
-    document.getElementById('reposiciones').style.display = "inline-block";
+    if (screen.width>414) {
+        document.getElementById('reposiciones').style.display = "inline-block";
+    }
 
     auto.setAttribute("disabled","disabled");
+    document.getElementById('goC').setAttribute("disabled","disabled");
+    document.getElementById('ciclos').setAttribute("disabled","disabled");
     document.getElementById('jogPlus').setAttribute("disabled","disabled");
     document.getElementById('jogMinus').setAttribute("disabled","disabled");
     document.getElementById('listaPosiciones').setAttribute("disabled","disabled");
@@ -84,6 +110,8 @@ function manual() {
 
     document.getElementById('reposiciones').style.display="none";
     auto.removeAttribute("disabled");
+    document.getElementById('goC').removeAttribute("disabled","disabled");
+    document.getElementById('ciclos').removeAttribute("disabled","disabled");
     document.getElementById('jogPlus').removeAttribute("disabled");
     document.getElementById('jogMinus').removeAttribute("disabled");
     document.getElementById('listaPosiciones').removeAttribute("disabled");
@@ -96,7 +124,7 @@ function manual() {
 
 function posicion() {
 
-    request2serverPulsador('"web".Milimetros/Tablas', 1);
+    request2serverPulsador('"web".Milimetros/Tablas', 0);
 
     let posicion = document.getElementById("posicion");
     let mili = document.getElementById("mili");
@@ -121,7 +149,7 @@ function posicion() {
 
 function milimetro() {
 
-    request2serverPulsador('"web".Milimetros/Tablas', 0);
+    request2serverPulsador('"web".Milimetros/Tablas', 1);
 
     let posicion = document.getElementById("posicion");
     let mili = document.getElementById("mili");

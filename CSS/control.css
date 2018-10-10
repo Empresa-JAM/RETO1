@@ -98,7 +98,7 @@ ul{
 #reposiciones h3{
     display: inline-block;
 }
-.led{
+#led1,#led2,#led3{
     width: 1.5em;
     height: 1.5em;
     border: 1px solid black;
@@ -161,7 +161,7 @@ ul{
     margin-bottom: 10%;
 
 }
-#milimetros{
+#milimetros,#ciclos{
     width:20%;
     display:inline-block;
 }
@@ -169,7 +169,7 @@ ul{
     display: inline-block;
     margin-right: 6%;
 }
-#go{
+#go,#goC{
     display: inline-block;
     width:20%;
     height: auto;
@@ -245,7 +245,7 @@ ul{
     background-color: #00a8e873;
 }
 
-#verMilimetros {
+#verMilimetros,#verAlerta {
     text-align: center;
     margin-bottom: 4%;
 }

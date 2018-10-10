@@ -22,22 +22,17 @@
     <div id="panelIzquierdo">
         <div id="lucesProgreso">
             <ul>
-                <li><p>Pilatzen</p><div class="led"></div></li>
-                <li><p>Paketatzen</p><div class="led"></div></li>
-                <li><p>Etiketatzen</p><div class="led"></div></li>
+                <li><p>Pilatzen</p><div id="led1"></div></li>
+                <li><p>Paketatzen</p><div id="led2"></div></li>
+                <li><p>Etiketatzen</p><div id="led3"></div></li>
             </ul>
         </div>
         <div id="alertas">
             <fieldset>
               <legend>Alertas</legend>
-                <!-- <ul>
-                    <li><div class="led"></div><p>alert 1</p></li>
-                    <li><div class="led"></div><p>alert 2</p></li>
-                    <li><div class="led"></div><p>alert 3</p></li>
-                    <li><div class="led"></div><p>alert 4</p></li>
+                <ul>
+                    <input name='"Historico alarmas".Valor de Alarma' id="verAlerta" value=':="Historico alarmas".Valor de Alarma:' readonly/>
                 </ul>
-                -->
-                <input id="reset" type="button" value="Reset">
             </fieldset>
         </div>
     </div>
@@ -143,6 +138,12 @@
                 <h3>mm</h3>
                 <button id="go" type="submit" form="enviarMM" onclick="moverMm()">GO</button>
             </form>
+         <!-- AWP_In_Variable Name='"web".enviarCiclos' -->
+         <form id="enviarC" method="post" onsubmit="return enviarMM(this.id)">
+             <input name='"web".enviarCiclos' id="ciclos" type="number" />
+             <h3>Ciclos</h3>
+             <button id="goC" type="submit" form="enviarC">GO</button>
+         </form>
 
         </div>
         <br>
