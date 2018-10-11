@@ -9,6 +9,11 @@ window.onresize = resize;
 function resize() {
     if(document.getElementById("listaPosiciones").value!=-1)
         moverPos();
+    if (screen.width>414) {
+        document.getElementById('reposiciones').style.display = "inline-block";
+    }else{
+        document.getElementById('reposiciones').style.display = "none";
+    }
 }
 
 window.onload = function () {
@@ -30,31 +35,9 @@ function cerrarModal() {
 
 function moverPos() {
     //obtenemos el valor de la lista 'listaposiciones' que se corresponde con la posición a la que se quiere ir
-    let pos=document.getElementById("listaPosiciones").value;
+    let pos = document.getElementById("listaPosiciones").value;
 
-    request2serverPulsador('"web".Posiciones por tablas',parseInt(pos));
-
-    switch (parseInt(pos)){
-        case 1: case 2: case 3: case 4:
-        document.getElementById('led1').style.backgroundColor = "red";
-        document.getElementById('led2').style.backgroundColor = "white";
-        document.getElementById('led3').style.backgroundColor = "white";
-        break;
-
-        case 5: case 6: case 7:
-        document.getElementById('led1').style.backgroundColor = "white";
-        document.getElementById('led2').style.backgroundColor = "red";
-        document.getElementById('led3').style.backgroundColor = "white";
-        break;
-
-        case 8: case 9: case 10:
-        document.getElementById('led1').style.backgroundColor = "white";
-        document.getElementById('led2').style.backgroundColor = "white";
-        document.getElementById('led3').style.backgroundColor = "red";
-
-    }
-
-
+    request2serverPulsador('"web".Posiciones por tablas', parseInt(pos));
 
     //el -1 se da cuando se selecciona el 'elige una posición
     //Se ha decidido no hacer nada en este caso
@@ -62,9 +45,29 @@ function moverPos() {
           //bloque.style.marginLeft=bloque.offsetWidth*pos+"px";
           var mm=(bloque.offsetWidth*pos*50)/bloque.offsetWidth;
           request2serverPulsador('"web".Posiciones por milimetros',parseInt(mm));
+          luces(parseInt(pos) * 50);
       }
 }
 
+function luces(posicionMm) {
+    if (posicionMm < 50 || isNaN(posicionMm)) {
+        document.getElementById('led1').style.backgroundColor = "#e3e3e3";
+        document.getElementById('led2').style.backgroundColor = "#e3e3e3";
+        document.getElementById('led3').style.backgroundColor = "#e3e3e3";
+    }else if (posicionMm < 200){
+        document.getElementById('led1').style.backgroundColor = "red";
+        document.getElementById('led2').style.backgroundColor = "#e3e3e3";
+        document.getElementById('led3').style.backgroundColor = "#e3e3e3";
+    }else if (posicionMm <350) {
+        document.getElementById('led1').style.backgroundColor = "#e3e3e3";
+        document.getElementById('led2').style.backgroundColor = "red";
+        document.getElementById('led3').style.backgroundColor = "#e3e3e3";
+    }else {
+        document.getElementById('led1').style.backgroundColor = "#e3e3e3";
+        document.getElementById('led2').style.backgroundColor = "#e3e3e3";
+        document.getElementById('led3').style.backgroundColor = "red";
+    }
+}
 
 function moverMm (){
     //obtenemos los milimetros a desplazarse

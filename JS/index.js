@@ -28,6 +28,7 @@ function verMovimiento() {
     let mm=document.getElementById("verMilimetros").value;
     let anchura=bloque.offsetWidth*10;
     bloque.style.marginLeft=(anchura*mm)/500+"px";
+    luces(mm);
 }
 
 //Nos permite devolver a la posicon 0 al automata al recargar la pagina
